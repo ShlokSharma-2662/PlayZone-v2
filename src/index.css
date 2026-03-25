@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6366f1;
+  /* Indigo-500 */
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #0ea5e9;
+  /* Sky-500 */
+  --color-accent: #8b5cf6;
+  /* Violet-500 */
+  --color-background: #020617;
+  /* Slate-950 */
+
+  --animate-mesh-1: mesh-1 20s infinite alternate;
+  --animate-mesh-2: mesh-2 25s infinite alternate-reverse;
+  --animate-mesh-3: mesh-3 30s infinite alternate;
+}
+
+@keyframes mesh-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(15%, 10%) scale(1.1);
+  }
+
+  100% {
+    transform: translate(-5%, 20%) scale(0.9);
+  }
+}
+
+@keyframes mesh-2 {
+  0% {
+    transform: translate(0, 0) scale(1.1);
+  }
+
+  50% {
+    transform: translate(-20%, -15%) scale(0.9);
+  }
+
+  100% {
+    transform: translate(10%, 5%) scale(1);
+  }
+}
+
+@keyframes mesh-3 {
+  0% {
+    transform: translate(0, 0) scale(0.9);
+  }
+
+  50% {
+    transform: translate(10%, -20%) scale(1.2);
+  }
+
+  100% {
+    transform: translate(-15%, 10%) scale(0.85);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-slate-200 antialiased overflow-x-hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-slate-900/40 backdrop-blur-2xl border border-white/10 shadow-2xl;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-premium {
+    @apply bg-slate-900/40 backdrop-blur-2xl border border-white/20 shadow-2xl;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold transition-all hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-primary/20 disabled:opacity-50 disabled:scale-100;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-xl border border-slate-700 bg-transparent text-slate-200 font-semibold transition-all hover:bg-slate-800 active:scale-95;
+  }
+
+  .input-field {
+    @apply px-4 py-3 rounded-xl border border-slate-700 bg-slate-900/50 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all;
+  }
+}
+
+/* Custom Utilities */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:border-primary/30;
+}
