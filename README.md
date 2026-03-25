@@ -108,7 +108,7 @@ npm run test
 
 ## Project Structure
 
-- `src/ui` - React UI and game screens
+- `src/client` - React UI and game screens
 - `src/server` - Express and Socket.IO server
 - `src/games` - game engine implementations
 - `src/shared` - shared types, events, and validation helpers
@@ -129,10 +129,10 @@ The codebase is organized around a room/session flow:
 3. The host selects a game and starts the match
 4. The server validates actions and broadcasts updated state to all connected players
 
-For implementation details, see the PRD documents in the repository root:
+For implementation details, see the PRD documents in `docs/`:
 
-- `PlayZone_PRD_v1.0.md`
-- `PlayZone_PRD_v2.0.md`
+- `docs/PlayZone_PRD_v1.0.md`
+- `docs/PlayZone_PRD_v2.0.md`
 
 ## Troubleshooting
 
